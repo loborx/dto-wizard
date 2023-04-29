@@ -35,14 +35,17 @@ jobs:
         run: composer install --prefer-dist --no-progress
 
       - name: PhpUnit tests
-        run: ./vendor/bin/phpunit --log-junit results.xml
+        run: ./vendor/bin/phpunit --log-junit .results/results-phpunit.xml
+
+      - name: CodeSniffer tests
+        run: ./vendor/bin/phpcs --report-full --report-junit=.results/results-codesniffer.xml
 
       - name: Publish Test Results
         uses: EnricoMi/publish-unit-test-result-action@v2
         if: always()
         with:
           files: |
-            results.xml
+            .results/results-*.xml
 
 
     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
