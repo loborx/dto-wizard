@@ -15,7 +15,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: php-actions/phpunit@v3
 
       - name: Validate composer.json and composer.lock
         run: composer validate --strict
@@ -33,9 +32,7 @@ jobs:
         run: composer install --prefer-dist --no-progress
 
       - name: PhpUnit tests
-        with:
-          log_junit: results.xml
-        run: ./vendor/bin/phpunit
+        run: ./vendor/bin/phpunit --log junit results.xml
 
     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
     # Docs: https://getcomposer.org/doc/articles/scripts.md
