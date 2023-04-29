@@ -34,9 +34,11 @@ jobs:
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress
 
+      - name: PhpUnit tests
+        run: ./vendor/bin/phpunit --log-junit results.xml
+
       - name: Publish Test Results
         uses: EnricoMi/publish-unit-test-result-action@v2
-
         if: always()
         with:
           files: |
