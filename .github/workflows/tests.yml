@@ -34,7 +34,7 @@ jobs:
       - name: PhpUnit tests
         uses: php-actions/phpunit@v3
         with:
-          log_junit: results.xml
+          log_junit: true
 
 
     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
