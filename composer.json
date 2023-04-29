@@ -1,0 +1,26 @@
+{
+    "name": "loborx/dto-wizard",
+    "description": "Tranform arrays with data into objects",
+    "require": {
+        "php": "^8.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "10.2.x-dev",
+        "squizlabs/php_codesniffer": "4.0.x-dev"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Loborx\\DtoWizard\\": "src/",
+            "Loborx\\DtoWizardTests": "tests/",
+            "Loborx\\DtoWizardExamples": "examples/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Piotr Skrobol",
+            "email": "pio.skro@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
