@@ -12,8 +12,9 @@
     "autoload": {
         "psr-4": {
             "Loborx\\DtoWizard\\": "src/",
-            "Loborx\\DtoWizardTests\\": "tests/",
-            "Loborx\\DtoWizardExamples\\": "examples/"
+            "Loborx\\DtoWizardExamples\\": "examples/",
+            "Loborx\\DtoWizardTests\\Examples\\": "tests/Examples/",
+            "Loborx\\DtoWizardTests\\Sources\\": "tests/Sources/"
         }
     },
     "authors": [
