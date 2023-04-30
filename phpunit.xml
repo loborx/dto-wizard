@@ -10,9 +10,13 @@
          beStrictAboutOutputDuringTests="true"
          failOnRisky="true"
          failOnWarning="true">
+
     <testsuites>
-        <testsuite name="default">
-            <directory>tests</directory>
+        <testsuite name="examples">
+            <directory>tests/Examples</directory>
+        </testsuite>
+        <testsuite name="source">
+            <directory>tests/Sources</directory>
         </testsuite>
     </testsuites>
 
