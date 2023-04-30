@@ -18,7 +18,6 @@ trait BootableTraits
                 $this->$expectedBootMethodName();
             }
         }
-
     }
 
     private function getTraits(): array
