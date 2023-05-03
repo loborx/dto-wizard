@@ -40,16 +40,11 @@ jobs:
       - name: CodeSniffer tests
         run: ./vendor/bin/phpcs --report-full --report-junit=.results/results-codesniffer.xml
 
-      - name: Publish Test Results
-        uses: EnricoMi/publish-unit-test-result-action@v2
-        if: always()
+      - name: PhpStan tests
+        run: vendor/bin/phpstan --error-format=junit >> .results/results-phpstan.xml
+
+      - name: Publish Test Report
+        uses: mikepenz/action-junit-report@v3
+        if: success() || failure()
         with:
-          files: |
-            .results/results-*.xml
-
-
-    # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
-    # Docs: https://getcomposer.org/doc/articles/scripts.md
-
-    # - name: Run test suite
-    #   run: composer run-script test
+          report_paths: '.results/results-*.xml'

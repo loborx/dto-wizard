@@ -20,6 +20,9 @@ trait BootableTraits
         }
     }
 
+    /**
+     * @return array<string, string>
+     */
     private function getTraits(): array
     {
         $class = $this;
@@ -37,7 +40,10 @@ trait BootableTraits
         return array_unique($results);
     }
 
-    public function traitUsesRecursive(mixed $trait): array
+    /**
+     * @return array<string>
+     */
+    public function traitUsesRecursive(string $trait): array
     {
         $traits = class_uses($trait) ?: [];
 
