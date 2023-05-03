@@ -6,8 +6,9 @@ namespace Loborx\DtoWizardExamples;
 
 use Loborx\DtoWizard\DataObject;
 
-class Post extends DataObject
+class Author extends DataObject
 {
-    public string $title;
-    public string $body;
+    public string $first_name;
+    public string $last_name;
+
 }

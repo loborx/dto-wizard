@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 namespace Loborx\DtoWizardTests\Examples;
 
+use Loborx\DtoWizardExamples\DataObjectFactory;
 use Loborx\DtoWizardExamples\Post;
-use Loborx\DtoWizardTests\TestCase;
-use PHPUnit\Framework\Attributes\Test;
 use Loborx\DtoWizardExamples\PostFactory;
+use Loborx\DtoWizardTests\TestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 
 #[CoversClass(PostFactory::class)]
 class PostFactoryTest extends TestCase
@@ -20,6 +21,13 @@ class PostFactoryTest extends TestCase
         parent::setUp();
         $this->factory = new PostFactory();
     }
+
+    #[Test]
+    public function it_extends_data_object_factory(): void
+    {
+        $this->assertInstanceOf(DataObjectFactory::class, new PostFactory());
+    }
+
 
     #[Test]
     public function it_creates_a_post(): void

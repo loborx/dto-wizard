@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 namespace Loborx\DtoWizardTests\Examples;
 
+use Loborx\DtoWizard\DataObject;
+use Loborx\DtoWizard\Traits\WithFaker;
 use Loborx\DtoWizardExamples\Post;
 use Loborx\DtoWizardTests\TestCase;
-use PHPUnit\Framework\Attributes\Test;
-use Loborx\DtoWizard\Traits\WithFaker;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 
 #[CoversClass(Post::class)]
 class PostTest extends TestCase
@@ -55,5 +56,13 @@ class PostTest extends TestCase
 
         $this->assertEquals($post->title, $rawData['title']);
         $this->assertEquals($post->body, $rawData['body']);
+    }
+
+    #[Test]
+    public function it_extends_data_object(): void
+    {
+        $post = new Post();
+
+        $this->assertInstanceOf(DataObject::class, $post);
     }
 }

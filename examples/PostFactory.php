@@ -4,25 +4,22 @@ declare(strict_types=1);
 
 namespace Loborx\DtoWizardExamples;
 
-use Faker\Factory;
-use Faker\Generator;
-
-class PostFactory
+/**
+ * @method Post create()
+ */
+class PostFactory extends DataObjectFactory
 {
-    protected Generator $faker;
+    protected string $model = Post::class;
 
-    public function __construct()
+    /**
+     * @return array<string, mixed>
+     */
+    public function definition(): array
     {
-        $this->faker = Factory::create();
-    }
-
-    public function create(): Post
-    {
-        $rawData = [
+        return [
             'title' => $this->faker->sentence(),
             'body' => $this->faker->paragraph(),
         ];
-
-        return new Post($rawData);
     }
+
 }
