@@ -65,4 +65,25 @@ class PostTest extends TestCase
 
         $this->assertInstanceOf(DataObject::class, $post);
     }
+
+    #[Test]
+    public function a_post_has_settable_title(): void
+    {
+        $post = new Post(['title' => $this->faker->sentence]);
+        $post->title = $newTitle = $this->faker->sentence;
+
+        $this->assertEquals($post->title, $newTitle);
+    }
+
+    #[Test]
+    public function a_post_has_non_settable_id(): void
+    {
+        $post = new Post([
+            'id' => $id = $this->faker->uuid()
+        ]);
+
+        $post->id = $this->faker->uuid();
+
+        $this->assertEquals($id, $post->id);
+    }
 }
