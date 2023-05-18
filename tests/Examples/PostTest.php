@@ -25,9 +25,9 @@ class PostTest extends TestCase
     #[Test]
     public function a_post_has_a_title(): void
     {
+        $post = new Post();
         $title = $this->faker->sentence();
 
-        $post = new Post();
         $post->title = $title;
 
         $this->assertEquals($title, $post->title);
@@ -78,11 +78,12 @@ class PostTest extends TestCase
     #[Test]
     public function a_post_has_non_settable_id(): void
     {
-        $post = new Post([
+        $rawData = [
             'id' => $id = $this->faker->uuid()
-        ]);
+        ];
+        $post = new Post($rawData);
 
-        $post->id = $this->faker->uuid();
+        $post->set('id', $this->faker->uuid());
 
         $this->assertEquals($id, $post->id);
     }
