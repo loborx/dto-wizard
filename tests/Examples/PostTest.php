@@ -58,7 +58,7 @@ it('has non settable id', function () {
 
     $post = new Post($rawData);
 
-    $post->set('id', fake()->uuid());
+    $post->id, fake()->uuid();
 
     $this->assertEquals($id, $post->id);
 })->todo();
