@@ -48,7 +48,7 @@ it('has a settable title', function () {
     $post = new Post(['title' => fake()->sentence]);
     $post->title = $newTitle = fake()->sentence;
 
-    $this->assertEquals($post->title, $newTitle);
+    expect($post->title)->toEqual($newTitle);
 });
 
 it('has non settable id', function () {
@@ -58,7 +58,7 @@ it('has non settable id', function () {
 
     $post = new Post($rawData);
 
-    $post->id, fake()->uuid();
+    $post->id = fake()->uuid();
 
     $this->assertEquals($id, $post->id);
 })->todo();
