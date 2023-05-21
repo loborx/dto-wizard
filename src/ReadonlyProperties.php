@@ -2,22 +2,23 @@
 
 declare(strict_types=1);
 
-namespace Loborx\DtoWizardExamples;
-
-use ReflectionClass;
+namespace Loborx\DtoWizard;
 
 trait ReadonlyProperties
 {
+    /**
+     * @param array<string, mixed> $rawData
+     */
     public function __construct(array $rawData = [])
     {
         foreach ($rawData as $key => $value) {
-            $this->{$key} = $value;
+            $this->set($key, $value);
         }
     }
 
     public function set(string $property, string $value): void
     {
-        $reflection = new ReflectionClass($this);
+        $reflection = new \ReflectionClass($this);
 
         if (!$reflection->hasProperty($property)) {
             return;
@@ -31,4 +32,5 @@ trait ReadonlyProperties
 
         $this->{$property} = $value;
     }
+
 }

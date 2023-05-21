@@ -81,9 +81,10 @@ class PostTest extends TestCase
         $rawData = [
             'id' => $id = $this->faker->uuid()
         ];
+
         $post = new Post($rawData);
 
-        $post->set('id', $this->faker->uuid());
+            $post->set('id', $this->faker->uuid());
 
         $this->assertEquals($id, $post->id);
     }
