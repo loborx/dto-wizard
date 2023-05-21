@@ -12,7 +12,24 @@ abstract class DataObject
     public function __construct(array $rawData = [])
     {
         foreach ($rawData as $key => $value) {
-            $this->{$key} = $value;
+            $this->set($key, $value);
         }
+    }
+
+    public function set(string $property, mixed $value): void
+    {
+        $reflection = new \ReflectionClass($this);
+
+        if (!$reflection->hasProperty($property)) {
+            return;
+        }
+
+        $reflectionProperty = $reflection->getProperty($property);
+
+        if ($reflectionProperty->isInitialized($this) && $reflectionProperty->isReadOnly()) {
+            return;
+        }
+
+        $this->{$property} = $value;
     }
 }
