@@ -7,42 +7,23 @@ namespace Loborx\DtoWizardTests\Examples;
 use Loborx\DtoWizard\DataObjectFactory;
 use Loborx\DtoWizardExamples\Author;
 use Loborx\DtoWizardExamples\AuthorFactory;
-use Loborx\DtoWizardTests\TestCase;
-use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\Test;
 
-#[CoversClass(AuthorFactory::class)]
-class AuthorFactoryTest extends TestCase
-{
-    private AuthorFactory $factory;
+beforeEach(function () {
+    $this->factory = new AuthorFactory();
+});
 
-    protected function setUp(): void
-    {
-        parent::setUp();
-        $this->factory = new AuthorFactory();
-    }
+it('creates an author', function () {
+    expect($this->factory->create())->toBeInstanceOf(Author::class);
+});
 
-    #[Test]
-    public function it_creates_a_author(): void
-    {
-        $this->assertInstanceOf(Author::class, $this->factory->create());
-    }
+it('creates author with first name', function () {
+    expect($this->factory->create()->first_name)->not->toBeNull();
+});
 
-    #[Test]
-    public function it_creates_author_first_name(): void
-    {
-        $this->assertNotNull($this->factory->create()->first_name);
-    }
+it('creates an author with last name', function () {
+    expect($this->factory->create()->last_name)->not->toBeNull();
+});
 
-    #[Test]
-    public function it_creates_author_last_name(): void
-    {
-        $this->assertNotNull($this->factory->create()->last_name);
-    }
-
-    #[Test]
-    public function it_extends_data_object_factory(): void
-    {
-        $this->assertInstanceOf(DataObjectFactory::class, new AuthorFactory());
-    }
-}
+it('extends DataObjectFactory', function () {
+    expect($this->factory)->toBeInstanceOf(DataObjectFactory::class);
+});

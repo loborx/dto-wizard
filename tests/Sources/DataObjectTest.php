@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Loborx\DtoWizardExamples;
+namespace Loborx\DtoWizardTests\Sources;
 
 use Loborx\DtoWizard\DataObject;
 use Loborx\DtoWizardTests\TestCase;
