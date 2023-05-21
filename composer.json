@@ -1,6 +1,6 @@
 {
     "name": "loborx/dto-wizard",
-    "description": "Tranform arrays with data into objects",
+    "description": "Transform any arrays into DTO",
     "require": {
         "php": "^8.0|^8.1|^8.2",
         "fakerphp/faker": "^1.21"
@@ -18,6 +18,8 @@
         "psr-4": {
             "Loborx\\DtoWizard\\": "src/",
             "Loborx\\DtoWizardExamples\\": "examples/",
+            "Loborx\\DtoWizardTests\\Examples\\": "tests/examples/",
+            "Loborx\\DtoWizardTests\\Sources\\": "tests/sources/",
             "Loborx\\DtoWizardTests\\": "tests/"
         }
     },

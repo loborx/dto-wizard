@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Loborx\DtoWizardTests;
+namespace Loborx\DtoWizardTests\Sources;
 
 use Loborx\DtoWizard\ExtractorInterface;
 use Loborx\DtoWizard\PhpDoc;
