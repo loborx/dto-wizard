@@ -2,12 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Loborx\DtoWizardExamples;
+namespace Loborx\DtoWizard;
 
 use Exception;
 use Faker\Factory;
 use Faker\Generator;
-use Loborx\DtoWizard\DataObject;
 
 abstract class DataObjectFactory
 {

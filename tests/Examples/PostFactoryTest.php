@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Loborx\DtoWizardTests\Examples;
 
-use Loborx\DtoWizardExamples\DataObjectFactory;
+use Loborx\DtoWizard\DataObjectFactory;
 use Loborx\DtoWizardExamples\Post;
 use Loborx\DtoWizardExamples\PostFactory;
 use Loborx\DtoWizardTests\TestCase;

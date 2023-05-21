@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Loborx\DtoWizardExamples;
 
+use Loborx\DtoWizard\DataObjectFactory;
 use Loborx\DtoWizardTests\TestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;

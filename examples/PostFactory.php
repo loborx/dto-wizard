@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Loborx\DtoWizardExamples;
 
+use Loborx\DtoWizard\DataObjectFactory;
+
 /**
  * @method Post create()
  */
