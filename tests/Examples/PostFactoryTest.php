@@ -7,45 +7,21 @@ namespace Loborx\DtoWizardTests\Examples;
 use Loborx\DtoWizard\DataObjectFactory;
 use Loborx\DtoWizardExamples\Post;
 use Loborx\DtoWizardExamples\PostFactory;
-use Loborx\DtoWizardTests\TestCase;
-use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\Test;
 
-#[CoversClass(PostFactory::class)]
-class PostFactoryTest extends TestCase
-{
-    protected PostFactory $factory;
+beforeEach(fn() => $this->factory = new PostFactory());
 
-    protected function setUp(): void
-    {
-        parent::setUp();
-        $this->factory = new PostFactory();
-    }
+it('extends DataObjectFactory', function () {
+    $this->assertInstanceOf(DataObjectFactory::class, new PostFactory());
+});
 
-    #[Test]
-    public function it_extends_data_object_factory(): void
-    {
-        $this->assertInstanceOf(DataObjectFactory::class, new PostFactory());
-    }
+it('creates a post', function () {
+    $this->assertInstanceOf(Post::class, $this->factory->create());
+});
 
+it('creates a post title', function () {
+    expect($this->factory->create()->title)->not->toBeNull();
+});
 
-    #[Test]
-    public function it_creates_a_post(): void
-    {
-        $factory = new PostFactory();
-
-        $this->assertInstanceOf(Post::class, $factory->create());
-    }
-
-    #[Test]
-    public function it_creates_a_post_title(): void
-    {
-        $this->assertNotNull($this->factory->create()->title);
-    }
-
-    #[Test]
-    public function it_creates_a_post_body(): void
-    {
-        $this->assertNotNull($this->factory->create()->body);
-    }
-}
+it('creates a post body', function () {
+    expect($this->factory->create()->body)->not->toBeNull();
+});
