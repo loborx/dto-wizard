@@ -6,6 +6,7 @@ namespace Loborx\DtoWizardTests\Examples;
 
 use Loborx\DtoWizard\DataObject;
 use Loborx\DtoWizardExamples\Post;
+
 use function Pest\Faker\fake;
 
 it('is instantiable', function () {
