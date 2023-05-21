@@ -16,7 +16,7 @@ abstract class DataObject
         }
     }
 
-    public function set(string $property, string $value): void
+    public function set(string $property, mixed $value): void
     {
         $reflection = new \ReflectionClass($this);
 
