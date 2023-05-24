@@ -5,11 +5,12 @@ declare(strict_types=1);
 namespace Loborx\DtoWizardTests\Sources;
 
 use Loborx\DtoWizard\ExtractorInterface;
-use Loborx\DtoWizard\PhpDoc;
+use Loborx\DtoWizard\PhpDocPropertiesExtractor;
+use Loborx\DtoWizardExamples\Author;
 use Loborx\DtoWizardExamples\Post;
 
 beforeEach(function () {
-    $this->extractor = new PhpDoc();
+    $this->extractor = new PhpDocPropertiesExtractor();
 });
 
 it('implements extractor interface', function () {
@@ -24,14 +25,26 @@ it('returns 3 properties', function () {
     expect($this->extractor->getProperties(new Post()))->toHaveLength(3);
 });
 
-it('first element is id', function () {
+it('first post element is id', function () {
     expect($this->extractor->getProperties(new Post())[0])->toEqual('id');
 });
 
-it('second element is title', function () {
+it('second post element is title', function () {
     expect($this->extractor->getProperties(new Post())[1])->toEqual('title');
 });
 
-it('third element is body', function () {
+it('third post element is body', function () {
     expect($this->extractor->getProperties(new Post())[2])->toEqual('body');
+});
+
+it('first author element is id', function () {
+    expect($this->extractor->getProperties(new Author())[0])->toEqual('id');
+});
+
+it('second author element is first_name', function () {
+    expect($this->extractor->getProperties(new Author())[1])->toEqual('first_name');
+});
+
+it('third author element is last_name', function () {
+    expect($this->extractor->getProperties(new Author())[2])->toEqual('last_name');
 });

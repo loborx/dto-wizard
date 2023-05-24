@@ -6,6 +6,11 @@ namespace Loborx\DtoWizardExamples;
 
 use Loborx\DtoWizard\DataObject;
 
+/**
+ * @property-read string $id
+ * @property string $title
+ * @property string $body
+ */
 class Post extends DataObject
 {
     public readonly string $id;
