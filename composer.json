@@ -1,5 +1,5 @@
 {
-    "name": "loborx/dto-wizard",
+    "name": "taboritis/dto-wizard",
     "description": "Transform any arrays into DTO",
     "require": {
         "php": "^8.0|^8.1|^8.2",
