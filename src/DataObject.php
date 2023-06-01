@@ -7,6 +7,11 @@ namespace Loborx\DtoWizard;
 abstract class DataObject
 {
     /**
+     * @var array<string, mixed>
+     */
+    private array $attributes = [];
+
+    /**
      * @param array<string, mixed> $rawData
      */
     public function __construct(array $rawData = [])
@@ -18,18 +23,11 @@ abstract class DataObject
 
     public function set(string $property, mixed $value): void
     {
-        $reflection = new \ReflectionClass($this);
+        $this->attributes[$property] = $value;
+    }
 
-        if (!$reflection->hasProperty($property)) {
-            return;
-        }
-
-        $reflectionProperty = $reflection->getProperty($property);
-
-        if ($reflectionProperty->isInitialized($this) && $reflectionProperty->isReadOnly()) {
-            return;
-        }
-
-        $this->{$property} = $value;
+    public function __get(string $property): mixed
+    {
+        return $this->attributes[$property];
     }
 }

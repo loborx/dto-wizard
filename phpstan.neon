@@ -3,6 +3,3 @@ parameters:
     paths:
         - src
         - examples
-    ignoreErrors:
-        - message: '#Class [a-zA-z\\]+ has an uninitialized readonly property \$\w+\. Assign it in the constructor\.#'
-          path: examples/*.php
