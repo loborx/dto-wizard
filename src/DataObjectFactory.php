@@ -22,13 +22,8 @@ abstract class DataObjectFactory
     public function create(): DataObject
     {
         $model = $this->getModelFQCN();
-        $class = new $model($this->definition());
 
-        if (!$class instanceof DataObject) {
-            throw new Exception('Test');
-        }
-
-        return $class;
+        return $model::create($this->definition());
     }
 
     private function getModelFQCN(): string

@@ -4,30 +4,25 @@ declare(strict_types=1);
 
 namespace Loborx\DtoWizard;
 
+use ReflectionClass;
+
 abstract class DataObject
 {
     /**
-     * @var array<string, mixed>
-     */
-    private array $attributes = [];
-
-    /**
      * @param array<string, mixed> $rawData
+     * @return static
      */
-    public function __construct(array $rawData = [])
+    public static function create(array $rawData = []): static
     {
-        foreach ($rawData as $key => $value) {
-            $this->set($key, $value);
+        /** @phpstan-ignore-next-line */
+        $model = new static();
+        $reflection = new ReflectionClass($model);
+        foreach ($rawData as $propertyName => $propertyValue) {
+            if ($reflection->hasProperty($propertyName)) {
+                $property = $reflection->getProperty($propertyName);
+                $property->setValue($model, $propertyValue);
+            }
         }
-    }
-
-    public function set(string $property, mixed $value): void
-    {
-        $this->attributes[$property] = $value;
-    }
-
-    public function __get(string $property): mixed
-    {
-        return $this->attributes[$property];
+        return $model;
     }
 }

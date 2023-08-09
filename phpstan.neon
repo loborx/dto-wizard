@@ -1,5 +1,7 @@
 parameters:
-    level: 9
-    paths:
-        - src
-        - examples
+  ignoreErrors:
+    - '#Class [a-zA-Z0-9\\_].+ has an uninitialized readonly property.+#'
+  level: 9
+  paths:
+    - src
+    - examples

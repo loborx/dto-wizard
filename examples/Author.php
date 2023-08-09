@@ -8,4 +8,7 @@ use Loborx\DtoWizard\DataObject;
 
 class Author extends DataObject
 {
+    public string $firstName;
+
+    public string $lastName;
 }

@@ -20,8 +20,8 @@ class AuthorFactory extends DataObjectFactory
     protected function definition(): array
     {
         return [
-            'first_name' => Factory::create()->firstName(),
-            'last_name' => Factory::create()->lastName(),
+            'firstName' => Factory::create()->firstName(),
+            'lastName' => Factory::create()->lastName(),
         ];
     }
 }

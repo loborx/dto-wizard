@@ -17,11 +17,11 @@ it('creates an author', function () {
 });
 
 it('creates author with first name', function () {
-    expect($this->factory->create()->first_name)->not->toBeNull();
+    expect($this->factory->create()->firstName)->not->toBeNull();
 });
 
 it('creates an author with last name', function () {
-    expect($this->factory->create()->last_name)->not->toBeNull();
+    expect($this->factory->create()->lastName)->not->toBeNull();
 });
 
 it('extends DataObjectFactory', function () {
