@@ -1,7 +1,8 @@
 <?php
+
 declare(strict_types=1);
 
-use Loborx\DtoWizardTests\Examples\Person;
+use Loborx\DtoWizardExamples\Person;
 use function PHPUnit\Framework\assertEquals;
 
 it('casts to integer', function () {
@@ -16,4 +17,14 @@ test('it can casts from float', function () {
 
     assertEquals(38, $wrapper->age);
     assertEquals('integer', gettype($wrapper->age));
+});
+
+it('cannot cast a string', function () {
+    $this->expectException(TypeError::class);
+    Person::create(['age' => 'sto-osiem']);
+});
+
+it('cannot cast a object', function () {
+    $this->expectException(TypeError::class);
+    Person::create(['age' => new Person()]);
 });
